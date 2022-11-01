@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev && npx netlify-cms-proxy-server",
     "build": "next build",
     "start": "next start",
     "export": "npm run build && next export"

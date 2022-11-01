@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
@@ -24,6 +25,17 @@ export async function getStaticProps() {
 }
 
 const Home = ({ home }) => {
+  useEffect(() => {
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', (user) => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/'
+          })
+        }
+      })
+    }
+  }, [])
   return (
     <>
       <Link href="/">Home</Link>
