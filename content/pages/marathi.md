@@ -3,7 +3,7 @@ title: Marathi
 builder:
   - type: header
     title: "Marathi "
-    photo: /images/shutterstock_editorial_12921962dj.jpeg
+    photo: /images/shutterstock_offset_1980903380.jpeg
   - type: content
     Content: Para evitar el plagio primero hay que saber reconocerlo. Entonces,
       primero veremos fuentes originales de un texto de Ciencias Políticas, una
