@@ -148,10 +148,23 @@ module.exports = {
               name: "image",
               required: true,
               widget: "image",
-            }
-          ]
-        }
-      ]
-    }
+            },
+            {
+              label: "Link",
+              name: "imagelink",
+              required: true,
+              widget: "string",
+            },
+            {
+              label: "Grid Ratio",
+              name: "gridratio",
+              required: true,
+              widget: "select",
+              options: ["width-1","width-2","width-3","width-4",],
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
