@@ -14,17 +14,30 @@ function getBySlug(dir, slug) {
   return data;
 }
 
+function getAllSlug() {
+  const arr = [];
+  fs.readdirSync(`content/pages`).forEach(file =>arr.push(file));
+  const list = arr.map((e) => e.replace('.md',''))
+  return list;
+}
+
 export async function getStaticProps() {
   const home = getBySlug("content/pages", "home");
+  let paths = null;
+  const all = getAllSlug();
+
+  paths = all.map((e) => ({
+    params: { slug: e }
+  }))
 
   return {
     props: {
-      home,
+      home, paths
     },
   };
 }
 
-const Home = ({ home }) => {
+const Home = ({ home, paths }) => {
   useEffect(() => {
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on('init', (user) => {
@@ -41,6 +54,11 @@ const Home = ({ home }) => {
       <Link href="/">Home</Link>
       <Link href="/spanish">Spanish</Link>
       <Link href="/marathi">Marathi</Link>
+      {
+        paths.map((path) => (
+          <Link href={`/${path}`}>{path}</Link>
+        ))
+      }
       {
         home.builder.map((item, index) => (
           <Builder key={index} type={item.type} item={item} />
