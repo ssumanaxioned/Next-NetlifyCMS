@@ -1,14 +1,17 @@
+const isLocalHost = typeof window !== 'undefined' && window.location.host === 'localhost:3000'
+
 module.exports = {
   
   // We want to manually init the config file
   cms_manual_init: true,
 
   // Backend configuration, in this case with git
-  backend: {
-    name: "git-gateway",
-    branch: "master",
-    squash_merges: true,
-  },
+  backend: isLocalHost
+  ? { name: 'test-repo' }
+  : {
+      name: 'git-gateway',
+      branch: 'master',
+    },
 
   // Local backend is used during development
   local_backend: true,
