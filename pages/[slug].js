@@ -50,7 +50,7 @@ export async function getStaticPaths() {
 }
 
 
-const Local = ({ local }) => {
+const Local = ({ local, paths }) => {
   return (
     <>
       {
