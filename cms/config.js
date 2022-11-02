@@ -120,5 +120,38 @@ module.exports = {
         },
       ],
     },
+    {
+      name: "Scroll Section",
+      label: "Scroll",
+      editor: { preview: true },
+      label_singular: "Scroll",
+      folder: "content/section",
+      create: true,
+      slug: "{{slug}}",
+      extension: "md",
+      format: "yaml-frontmatter",
+      fields: [
+        {
+          label: "Title section",
+          name: "title",
+          required: true,
+          widget: "string",
+        },
+        {
+          label: "Grid Images",
+          name: "grid",
+          required: true,
+          widget: "list",
+          fields: [
+            {
+              label: "Images",
+              name: "image",
+              required: true,
+              widget: "image",
+            }
+          ]
+        }
+      ]
+    }
   ],
 };
