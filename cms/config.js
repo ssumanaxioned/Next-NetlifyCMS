@@ -10,7 +10,7 @@ module.exports = {
   ? { name: 'test-repo' }
   : {
       name: 'git-gateway',
-      branch: 'master',
+      branch: 'staging',
     },
 
   // Local backend is used during development
