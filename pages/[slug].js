@@ -22,10 +22,15 @@ function getAllSlug() {
 
 export async function getStaticProps({ params }) {
   const local = getBySlug("content/pages", params.slug);
+  let paths = null;
+  const all = getAllSlug();
 
+  paths = all.map((e) => ({
+    params: { slug: e }
+  }))
   return {
     props: {
-      local,
+      local, paths
     },
   };
 }
@@ -48,9 +53,22 @@ export async function getStaticPaths() {
 const Local = ({ local }) => {
   return (
     <>
-      <Link href="/">Home</Link>
-      <Link href="/spanish">Spanish</Link>
-      <Link href="/marathi">Marathi</Link>
+      {
+        paths.map((path) => (
+          path.params.slug === "home" ? 
+          <Link href='/'>
+            <a style={{ marginRight: "10px" }}>
+            {path.params.slug}
+            </a>
+          </Link>
+          : 
+          <Link href={`/${path.params.slug}`}>
+            <a style={{ marginRight: "10px" }}>
+            {path.params.slug}
+            </a>
+          </Link>
+        ))
+      }
       {
         local.builder.map((item, index) => (
           <Builder key={index} type={item.type} item={item} />

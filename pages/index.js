@@ -51,12 +51,20 @@ const Home = ({ home, paths }) => {
   }, [])
   return (
     <>
-      <Link href="/">Home</Link>
-      <Link href="/spanish">Spanish</Link>
-      <Link href="/marathi">Marathi</Link>
       {
         paths.map((path) => (
-          <Link href={`/${path}`}>{path}</Link>
+          path.params.slug === "home" ? 
+          <Link href='/'>
+            <a style={{ marginRight: "10px" }}>
+            {path.params.slug}
+            </a>
+          </Link>
+          : 
+          <Link href={`/${path.params.slug}`}>
+            <a style={{ marginRight: "10px" }}>
+            {path.params.slug}
+            </a>
+          </Link>
         ))
       }
       {
