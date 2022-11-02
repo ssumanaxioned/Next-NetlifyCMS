@@ -14,4 +14,7 @@ builder:
   - type: cta
     title: Hello Axioned
     link: https://axioned.com/
+  - type: banner
+    title: title
+    video: /images/shutterstock_1073107646.mp4
 ---
