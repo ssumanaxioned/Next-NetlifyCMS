@@ -1,8 +1,8 @@
 ---
-title: Marathi
+title: French
 builder:
   - type: header
-    title: "Marathi "
+    title: French Banner
     photo: /images/shutterstock_offset_1980903380.jpeg
   - type: content
     Content: Para evitar el plagio primero hay que saber reconocerlo. Entonces,
