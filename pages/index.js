@@ -40,6 +40,7 @@ const Home = ({ home }) => {
     <>
       <Link href="/">Home</Link>
       <Link href="/spanish">Spanish</Link>
+      <Link href="/marathi">Marathi</Link>
       {
         home.builder.map((item, index) => (
           <Builder key={index} type={item.type} item={item} />
